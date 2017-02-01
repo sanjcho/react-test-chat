@@ -2,6 +2,11 @@ import {
   GET_PHOTOS_REQUEST,
   GET_PHOTOS_SUCCESS
 } from '../constants/Page'
+import {
+  ACCESS_TOKEN,
+  CLIENT,
+  UID
+} from '../constants/AuthInfo'
 
 export function getPhotos(year) {
 
