@@ -18,3 +18,18 @@ export const addMessage = (filter) => {
     text
   }
 }
+// Planned store structure
+// {
+//   current_user: {
+//     name: "",
+//     color: ""
+//   },
+//   messages: [
+//     {id: num,
+//     author: "",
+//     text: "",
+//     color: ""},
+//     {},
+//     ...
+//   ]
+// }
