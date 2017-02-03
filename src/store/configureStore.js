@@ -1,15 +1,13 @@
 import { createStore, applyMiddleware } from 'redux'
-import rootReducer from '../reducers'
 import createLogger from 'redux-logger'
-import thunk from 'redux-thunk'
+import todoApp from './reducers'
 
 
-export default function configureStore(initialState) {
+const configureStore = () => {
   const logger = createLogger()
   const store = createStore(
-    rootReducer,
-    initialState,
-    applyMiddleware(thunk, logger))
+    todoApp,
+    applyMiddleware(logger))
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {
@@ -17,6 +15,6 @@ export default function configureStore(initialState) {
       store.replaceReducer(nextRootReducer)
     })
   }
-
   return store
 }
+export default configureStore
