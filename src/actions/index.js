@@ -1,28 +1,20 @@
 import {
-  ADD_TODO,
-  SET_VISIBILITY_FILTER,
-  TOGGLE_TODO
+  ADD_USER,
+  ADD_MESSAGE
 } from '../constants/All'
 
-let nextTodoId = 0
-export const addTodo = (text) => {
+let nextMessageId = 0
+export const addUser = (text) => {
   return {
-    type: ADD_TODO,
-    id: nextTodoId++,
+    type: ADD_USER,
+    username
+  }
+}
+
+export const addMessage = (filter) => {
+  return {
+    type: ADD_MESSAGE,
+    id: nextMessageId++,
     text
-  }
-}
-
-export const setVisibilityFilter = (filter) => {
-  return {
-    type: SET_VISIBILITY_FILTER,
-    filter
-  }
-}
-
-export const toggleTodo = (id) => {
-  return {
-    type: TOGGLE_TODO,
-    id
   }
 }
