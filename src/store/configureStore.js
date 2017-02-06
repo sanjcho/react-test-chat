@@ -1,12 +1,12 @@
 import { createStore, applyMiddleware } from 'redux'
 import createLogger from 'redux-logger'
-import todoApp from '../reducers'
+import chatApp from '../reducers'
 
 
 const configureStore = () => {
   const logger = createLogger()
   const store = createStore(
-    todoApp,
+    chatApp,
     applyMiddleware(logger))
 
   if (module.hot) {

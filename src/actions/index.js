@@ -7,7 +7,7 @@ let nextMessageId = 0
 export const addUser = (text) => {
   return {
     type: ADD_USER,
-    username
+    user
   }
 }
 
@@ -15,6 +15,8 @@ export const addMessage = (filter) => {
   return {
     type: ADD_MESSAGE,
     id: nextMessageId++,
+    user,
+    color,
     text
   }
 }
@@ -26,7 +28,7 @@ export const addMessage = (filter) => {
 //   },
 //   messages: [
 //     {id: num,
-//     author: "",
+//     user: "",
 //     text: "",
 //     color: ""},
 //     {},

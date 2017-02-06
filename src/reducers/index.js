@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import todos from './todos'
-import visibilityFilter from './visibilityFilter'
+import todos from './messages'
+import visibilityFilter from './currentUser'
 
-const todoApp = combineReducers({
-  todos,
-  visibilityFilter
+const chatApp = combineReducers({
+  messages,
+  currentUser
 })
 
-export default todoApp
+export default chatApp
