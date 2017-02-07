@@ -12,11 +12,6 @@ const setColor = () => {
   return color
 }
 
-const ChangeCurrentUser = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CurrentUser)
-
 const mapStateToProps = (state) => {
   return {
     currentUser: state.currentUser
@@ -28,5 +23,10 @@ const mapDispatchToProps = (dispatch) => {
     dispatch(addUser(name, setColor()))
   }
 }
+
+const ChangeCurrentUser = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CurrentUser)
 
 export default ChangeCurrentUser

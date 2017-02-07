@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 
 const CurrentUser = ({currentUser, changeUser }) => {
   let input
+  console.log(currentUser)
   return(
     <div>
       <h3

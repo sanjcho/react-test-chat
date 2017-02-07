@@ -1,16 +1,17 @@
 import { createStore } from 'redux'
 import chatApp from '../reducers'
 
+const initialState = {
+  currentUser: {
+    name: 'Unknown',
+    color: '#000'
+  }
+}
 
 const configureStore = () => {
   const store = createStore(
     chatApp,
-    {
-      currentUser: {
-        name: 'Unknown',
-        color: '#000'
-      }
-    }
+    initialState
   )
   console.log(store.getState())
 
