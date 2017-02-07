@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import Message from './Message'
-
+//  Не факт что сообщения вообще есть
 const MessageList = ({ messages }) => (
   <ul>
     {messages.map(message =>

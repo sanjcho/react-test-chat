@@ -4,7 +4,7 @@ import chatApp from '../reducers'
 const initialState = {
   currentUser: {
     name: 'Unknown',
-    color: '#000'
+    color: '#555'
   }
 }
 
