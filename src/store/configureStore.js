@@ -1,13 +1,18 @@
-import { createStore, applyMiddleware } from 'redux'
-import createLogger from 'redux-logger'
+import { createStore } from 'redux'
 import chatApp from '../reducers'
 
 
 const configureStore = () => {
-  const logger = createLogger()
   const store = createStore(
     chatApp,
-    applyMiddleware(logger))
+    {
+      currentUser: {
+        name: 'Unknown',
+        color: '#000'
+      }
+    }
+  )
+  console.log(store.getState())
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {

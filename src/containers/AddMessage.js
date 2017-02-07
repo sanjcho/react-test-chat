@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '../actions'
+import { addMessage } from '../actions'
 
-let AddTodo = ({ dispatch }) => {
+let AddMessage = ({user, dispatch }) => {
   let input
 
   return (
@@ -12,19 +12,28 @@ let AddTodo = ({ dispatch }) => {
         if (!input.value.trim()) {
           return
         }
-        dispatch(addTodo(input.value))
+        dispatch(addMessage(user, input.value))
         input.value = ''
       }}>
         <input ref={node => {
           input = node
         }} />
-        <button type="submit">
-          Add Todo
+        <button type='submit'>
+          Add Message
         </button>
       </form>
     </div>
   )
 }
-AddTodo = connect()(AddTodo)
 
-export default AddTodo
+
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.current_user
+  }
+}
+
+AddMessage = connect(mapStateToProps)(AddMessage)
+
+export default AddMessage

@@ -1,15 +1,15 @@
 import {
-  ADD_USER,
+  CHANGE_USER
 } from '../constants/All'
 
 const initialState = {
-  name: "default",
-  color: "#000"
+  name: 'default',
+  color: '#000'
 }
 
-const visibilityFilter = (state = initialState, action) => {
+const currentUser = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_USER:
+    case CHANGE_USER:
       return Object.assign({}, state, {
         name: action.name,
         color: action.color
@@ -19,4 +19,4 @@ const visibilityFilter = (state = initialState, action) => {
   }
 }
 
-export default visibilityFilter
+export default currentUser

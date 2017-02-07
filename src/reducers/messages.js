@@ -8,8 +8,8 @@ const message = (state = {}, action) => {
       return {
         id: action.id,
         text: action.text,
-        user: action.user,
-        color: action.color
+        author: action.user.name,
+        color: action.user.color
       }
     // case 'TOGGLE_TODO':
     //   if (state.id !== action.id) {

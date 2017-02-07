@@ -1,25 +1,28 @@
 import {
-  ADD_USER,
+  CHANGE_USER,
   ADD_MESSAGE
 } from '../constants/All'
 
 let nextMessageId = 0
-export const addUser = (text) => {
+
+export const addUser = (name, color) => {
   return {
-    type: ADD_USER,
-    user
+    type: CHANGE_USER,
+    name,
+    color
   }
 }
 
-export const addMessage = (filter) => {
+export const addMessage = (user, text) => {
   return {
     type: ADD_MESSAGE,
     id: nextMessageId++,
     user,
-    color,
     text
   }
 }
+
+
 // Planned store structure
 // {
 //   current_user: {

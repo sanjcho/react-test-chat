@@ -1,11 +1,14 @@
 import React from 'react'
-import AddTodo from '../containers/AddTodo'
-import VisibleTodoList from '../containers/VisibleTodoList'
+import AddMessage from '../containers/AddMessage'
+import ChangeCurrentUser from '../containers/ChangeCurrentUser'
+import GetMessageList from '../containers/GetMessageList'
+
 
 const App = () => (
   <div>
-    <AddTodo />
-    <VisibleTodoList />
+    <ChangeCurrentUser />
+    <AddMessage/>
+    <GetMessageList/>
   </div>
 )
 

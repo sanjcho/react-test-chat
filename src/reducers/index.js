@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import todos from './messages'
-import visibilityFilter from './currentUser'
+import messages from './messages'
+import currentUser from './currentUser'
 
 const chatApp = combineReducers({
   messages,
