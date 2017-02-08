@@ -25,14 +25,14 @@ const MessageList = ({ messages, deleteMessage, currentUserName }) => {
 }
 
 MessageList.propTypes = {
-  Messages: PropTypes.arrayOf(PropTypes.shape({
+  messages: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     user: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired
   }).isRequired).isRequired,
   deleteMessage: PropTypes.func.isRequired,
-  currentUserName: PropTypes.func.isRequired
+  currentUserName: PropTypes.string.isRequired
 }
 
 export default MessageList

@@ -15,7 +15,7 @@ const Message = ({deleteMessage, author, text, color, id, currentUserName }) => 
         color: color
       }}
     >
-      {author}: {text} {id}
+      {author}: {text}  
       <a href='#' onClick={handleClick}>
         Delete me
       </a>
