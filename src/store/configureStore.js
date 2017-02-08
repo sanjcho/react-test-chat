@@ -1,4 +1,5 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import createLogger from 'redux-logger'
 import chatApp from '../reducers'
 
 const initialState = {
@@ -9,9 +10,11 @@ const initialState = {
 }
 
 const configureStore = () => {
+  const logger = createLogger()
   const store = createStore(
     chatApp,
-    initialState
+    initialState,
+    applyMiddleware(logger)
   )
 
   if (module.hot) {
