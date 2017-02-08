@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react'
 import Message from './Message'
 //  Не факт что сообщения вообще есть
-const MessageList = ({ messages, deleteMessage }) => {
-  console.log(deleteMessage)
+const MessageList = ({ messages, deleteMessage, currentUserName }) => {
+  console.log('currentUserName in messageList: '+ currentUserName)
   return(
     <div>
       <h3>
-        Chat
+        Chat:
       </h3>
       <div>
         {messages.map(message =>
@@ -14,6 +14,7 @@ const MessageList = ({ messages, deleteMessage }) => {
             <Message
               key={message.id}
               deleteMessage={deleteMessage}
+              currentUserName={currentUserName}
               {...message}
             />
           </div>
@@ -29,7 +30,9 @@ MessageList.propTypes = {
     user: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired
-  }).isRequired).isRequired
+  }).isRequired).isRequired,
+  deleteMessage: PropTypes.func.isRequired,
+  currentUserName: PropTypes.func.isRequired
 }
 
 export default MessageList

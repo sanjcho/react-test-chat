@@ -1,11 +1,13 @@
 import React, { PropTypes } from 'react'
 
-const Message = ({deleteMessage, author, text, color, id }) => {
-  console.log('my funct from message is ' + deleteMessage)
+const Message = ({deleteMessage, author, text, color, id, currentUserName }) => {
+  console.log('author: ' + author)
+  console.log('current: ' + currentUserName)
   function handleClick(e) {
     e.preventDefault()
-    console.log('The link was clicked.')
-    deleteMessage(id)
+    if (author === currentUserName) {
+      deleteMessage(id)
+    }
   }
   return(
     <p
@@ -23,7 +25,10 @@ const Message = ({deleteMessage, author, text, color, id }) => {
 Message.propTypes = {
   user: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired
+  color: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  currentUserName: PropTypes.string.isRequired,
+  deleteMessage: PropTypes.func.isRequired
 }
 
 export default Message

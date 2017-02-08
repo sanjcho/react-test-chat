@@ -3,8 +3,10 @@ import MessageList from '../components/MessageList'
 import {deleteMessage} from '../actions'
 
 const mapStateToProps = (state) => {
+  console.log('state in getMessageList#mapStateToProps ' + state.currentUser.name)
   return {
-    messages: state.messages
+    messages: state.messages,
+    currentUserName: state.currentUser.name
   }
 }
 
