@@ -13,7 +13,6 @@ const configureStore = () => {
     chatApp,
     initialState
   )
-  console.log(store.getState())
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {

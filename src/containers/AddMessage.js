@@ -29,7 +29,7 @@ let AddMessage = ({user, dispatch }) => {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.current_user
+    user: state.currentUser
   }
 }
 

@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react'
 
-const Message = ({user, text, color }) => (
+const Message = ({author, text, color }) => (
   <li
     style={{
       color: color
     }}
   >
-    {user}: {text}
+    {author}: {text}
   </li>
 )
 

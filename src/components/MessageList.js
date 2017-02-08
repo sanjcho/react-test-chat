@@ -4,10 +4,16 @@ import Message from './Message'
 const MessageList = ({ messages }) => (
   <ul>
     {messages.map(message =>
-      <Message
-        key={message.id}
-        {...message}
-      />
+      <div>
+        <p>
+          <Message
+            key={message.id}
+            {...message}
+          />
+        </p>
+        <p>{console.log(message.id)}</p>
+
+      </div>
     )}
   </ul>
 )
