@@ -4,7 +4,6 @@ import { addMessage } from '../actions'
 
 let AddMessage = ({user, dispatch }) => {
   let input
-
   return (
     <div>
       <form onSubmit={e => {
