@@ -34,10 +34,10 @@ const CurrentUser = ({currentUser, changeUser }) => {
 }
 
 CurrentUser.propTypes = {
-  currentUser: PropTypes.arrayOf(PropTypes.shape({
+  currentUser: PropTypes.shape({
     name: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired
-  })).isRequired,
+  }).isRequired,
   changeUser: PropTypes.func.isRequired
 }
 
