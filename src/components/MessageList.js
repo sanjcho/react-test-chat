@@ -1,22 +1,27 @@
 import React, { PropTypes } from 'react'
 import Message from './Message'
 //  Не факт что сообщения вообще есть
-const MessageList = ({ messages }) => (
-  <ul>
-    {messages.map(message =>
+const MessageList = ({ messages, deleteMessage }) => {
+  console.log(deleteMessage)
+  return(
+    <div>
+      <h3>
+        Chat
+      </h3>
       <div>
-        <p>
-          <Message
-            key={message.id}
-            {...message}
-          />
-        </p>
-        <p>{console.log(message.id)}</p>
-
+        {messages.map(message =>
+          <div>
+            <Message
+              key={message.id}
+              deleteMessage={deleteMessage}
+              {...message}
+            />
+          </div>
+        )}
       </div>
-    )}
-  </ul>
-)
+    </div>
+  )
+}
 
 MessageList.propTypes = {
   Messages: PropTypes.arrayOf(PropTypes.shape({

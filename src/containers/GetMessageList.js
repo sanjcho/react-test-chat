@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import MessageList from '../components/MessageList'
-
+import {deleteMessage} from '../actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -8,8 +8,17 @@ const mapStateToProps = (state) => {
   }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteMessage: (id) => {
+      dispatch(deleteMessage(id))
+    }
+  }
+}
+
 const GetMessageList = connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(MessageList)
 
 export default GetMessageList

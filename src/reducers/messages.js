@@ -1,5 +1,6 @@
 import {
-  ADD_MESSAGE
+  ADD_MESSAGE,
+  DELETE_MESSAGE
 } from '../constants/All'
 
 const message = (state = {}, action) => {
@@ -11,32 +12,22 @@ const message = (state = {}, action) => {
         author: action.user.name,
         color: action.user.color
       }
-    // case 'TOGGLE_TODO':
-    //   if (state.id !== action.id) {
-    //     return state
-    //   }
-    //
-    //   return Object.assign({}, state, {
-    //     completed: !state.completed
-    //   })
-    //
     default:
       return state
   }
 }
 
 const messages = (state = [], action) => {
+  console.log(state)
   switch (action.type) {
     case ADD_MESSAGE:
       return [
         ...state,
         message(undefined, action)
       ]
-    // case 'TOGGLE_TODO':
-    //   return state.map(t =>
-    //     todo(t, action)
-    //   )
-    default:
+    case DELETE_MESSAGE:
+      return state.filter(message => message.id != action.id )
+      default:
       return state
   }
 }

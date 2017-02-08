@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addMessage } from '../actions'
+import { Button } from 'react-bootstrap';
 
 let AddMessage = ({user, dispatch }) => {
   let input
@@ -17,9 +18,9 @@ let AddMessage = ({user, dispatch }) => {
         <input ref={node => {
           input = node
         }} />
-        <button type='submit'>
+        <Button bsSize='xsmall' type='submit'>
           Add Message
-        </button>
+        </Button>
       </form>
     </div>
   )

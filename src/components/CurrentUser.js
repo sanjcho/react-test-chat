@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { Button  } from 'react-bootstrap';
 
 const CurrentUser = ({currentUser, changeUser }) => {
   let input
@@ -23,9 +24,9 @@ const CurrentUser = ({currentUser, changeUser }) => {
           <input ref={node => {
             input = node
           }} />
-          <button type= 'submit'>
+          <Button type= 'submit'>
             Change Current User
-          </button>
+          </Button>
         </form>
       </div>
     </div>

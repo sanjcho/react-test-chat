@@ -1,6 +1,7 @@
 import {
   CHANGE_USER,
-  ADD_MESSAGE
+  ADD_MESSAGE,
+  DELETE_MESSAGE
 } from '../constants/All'
 
 let nextMessageId = 0
@@ -19,6 +20,13 @@ export const addMessage = (user, text) => {
     id: nextMessageId++,
     user,
     text
+  }
+}
+
+export const deleteMessage = (id) => {
+  return {
+    type: DELETE_MESSAGE,
+    id: id
   }
 }
 
