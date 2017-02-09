@@ -27,7 +27,7 @@ const MessageList = ({ messages, deleteMessage, currentUserName }) => {
 MessageList.propTypes = {
   messages: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
-    user: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired
   }).isRequired).isRequired,
