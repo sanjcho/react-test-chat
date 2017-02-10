@@ -6,7 +6,8 @@ const mapStateToProps = (state) => {
   console.log('state in getMessageList#mapStateToProps ' + state.currentUser.name)
   return {
     messages: state.messages,
-    currentUserName: state.currentUser.name
+    currentUserName: state.currentUser.name,
+    fetching: state.serviceState.isFetching
   }
 }
 

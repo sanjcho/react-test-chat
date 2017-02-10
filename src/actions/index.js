@@ -1,7 +1,8 @@
 import {
   CHANGE_USER,
   ADD_MESSAGE,
-  DELETE_MESSAGE
+  DELETE_MESSAGE,
+  IS_FETCHING
 } from '../constants/All'
 
 let nextMessageId = 0
@@ -27,6 +28,12 @@ export const deleteMessage = (id) => {
   return {
     type: DELETE_MESSAGE,
     id: id
+  }
+}
+
+export const isFetching = () => {
+  return {
+    type: IS_FETCHING
   }
 }
 
