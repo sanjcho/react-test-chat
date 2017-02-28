@@ -13,7 +13,7 @@ export function* mySaga() {
 
 function* makeConsoleLog() {
   yield put({type: 'IS_FETCHING'})
-  const response = yield call(api.getMyselfProfile)
+  const response = yield call(api.getCode)
   if (response.ok) {
     console.log(response.data)
   } else {

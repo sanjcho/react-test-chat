@@ -19,11 +19,12 @@ const create = (baseURL = URL) => {
     timeout: 10000
   })
 
-  const getMyselfProfile = () => api.get('/user/get_my_account')
-
+  const getMyselfProfile = () => api.get('/users/get_my_account')
+  const getCode = () => api.post('/auth/get_code', {phone_number: '79608001033' })
 
   return {
-    getMyselfProfile
+    getMyselfProfile,
+    getCode
   }
 };
 export default {
