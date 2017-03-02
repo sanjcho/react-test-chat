@@ -4,10 +4,10 @@ import {ACCESS_TOKEN,
         UID,
         URL} from '../constants/AuthInfo'
 
-const create = (baseURL = URL) => {
+const create = () => {
   const api = apisauce.create({
     // base URL is read from the "constructor"
-    baseURL,
+    baseURL: URL,
     // here are some default headers
     headers: {
       'Content-Type' : 'application/json',
