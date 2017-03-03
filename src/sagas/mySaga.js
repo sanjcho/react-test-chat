@@ -1,8 +1,8 @@
-import { takeEvery, call, put } from 'redux-saga/effects'
+import { takeEvery, put } from 'redux-saga/effects'
+import { delay } from 'redux-saga'
 import {
   ADD_MESSAGE
 } from '../constants/All'
-// import API from '../services/Api'
 import {ACCESS_TOKEN_30,
         CLIENT_30,
         UID_30 } from '../constants/AuthInfo'
@@ -20,9 +20,11 @@ export function* mySaga() {
 }
 
 function* sendMessage(action) {
-  yield put({type: 'IS_FETCHING'})
-  const response = yield call(fetchData, action.text)
-  console.log(response)
+  yield put({type: 'IS_FETCHING'});
+  const messages = yield fetchData(action.text);
+  yield put({type: 'UPDATE_MESSAGES', messages})
+  yield delay(1000);
+  yield put({type: 'STOP_FETCHING'});
 }
 
 function fetchData(text) {
@@ -35,13 +37,24 @@ function fetchData(text) {
     }
   })
 
-  fetch('http://localhost:3001/api/v1/messages/',
+  return fetch('http://localhost:3001/api/v1/messages/',
     {
       method: 'POST',
       mode: 'cors',
       headers: myHeaders,
       body: myBody
     })
-    .then(function(r) { console.log(r) })
-    .then(function (j) { return j.json() });
+    .then(function(r) {
+       return r.json() ;
+      })
+    .then(function (j) {
+      let messages = j.messages.map(function(m) {
+         return {
+           id: m._id,
+           author: m.user.name,
+           text: m.text
+         }
+       });
+      return(messages);
+    });
 }

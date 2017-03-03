@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react'
 import Message from './Message'
 
-const MessageList = ({ messages, deleteMessage, currentUserName, isFetching }) => {
-  console.log('currentUserName in messageList: '+ currentUserName)
+const MessageList = ({ messages, deleteMessage, currentUserName, fetching }) => {
+  console.log(fetching)
   return(
     <div>
       <p>
-        {isFetching === true ? 'fetching' : '' }
+        {fetching === true ? 'fetching' : '' }
       </p>
       <h3>
         Chat:
@@ -36,7 +36,7 @@ MessageList.propTypes = {
   }).isRequired).isRequired,
   deleteMessage: PropTypes.func.isRequired,
   currentUserName: PropTypes.string.isRequired,
-  isFetching: PropTypes.bool.isRequired
+  fetching: PropTypes.bool.isRequired
 }
 
 export default MessageList

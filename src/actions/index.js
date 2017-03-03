@@ -37,6 +37,20 @@ export const isFetching = () => {
   }
 }
 
+export const stopFetching = () => {
+  return {
+    type: 'STOP_FETCHING'
+  }
+}
+
+export const updateMessages = (messages) => {
+  console.log(messages);
+  return {
+    type: 'UPDATE_MESSAGES',
+    messages: messages
+  }
+}
+
 
 // Planned store structure
 // {

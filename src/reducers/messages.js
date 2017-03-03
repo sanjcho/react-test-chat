@@ -27,6 +27,8 @@ const messages = (state = [], action) => {
       ]
     case DELETE_MESSAGE:
       return state.filter(message => message.id != action.id )
+    case 'UPDATE_MESSAGES':
+      return action.messages
       default:
       return state
   }
