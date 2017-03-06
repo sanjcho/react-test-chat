@@ -6,13 +6,17 @@ import './styles/app.css'
 
 import configureStore from './store/configureStore'
 
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+
+
 const store = configureStore()
 
 render(
   <Provider store={store}>
-    <div className='app'>
-      <App />
-    </div>
+    <Router history={browserHistory}>
+      <IndexRoute component={App} />
+      <Route path='/(:filter)' component={App} />
+    </Router>
   </Provider>,
   document.getElementById('root')
 )

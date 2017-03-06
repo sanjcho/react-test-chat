@@ -50,3 +50,6 @@ module.exports = {
     return [autoprefixer, precss];
   }
 }
+devServer: {
+  historyApiFallback: true
+}

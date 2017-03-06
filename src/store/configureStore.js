@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import createLogger from 'redux-logger'
 import chatApp from '../reducers'
-import {mySaga} from '../sagas/mySaga'
+import {rootSaga} from '../sagas/rootSaga'
 
 const sagaMiddleware = createSagaMiddleware()
 const initialState = {
@@ -19,7 +19,7 @@ const configureStore = () => {
     initialState,
     applyMiddleware(sagaMiddleware, logger)
   )
-  sagaMiddleware.run(mySaga)
+  sagaMiddleware.run(rootSaga)
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {
