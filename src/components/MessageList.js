@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react'
 import Message from './Message'
 
-const MessageList = ({ messages, deleteMessage, currentUserName, fetching }) => {
+const MessageList = ({ messages, deleteMessage, currentUserName, fetching, preloadMessages }) => {
   console.log(fetching)
+  componentWillMount: preloadMessages
   return(
     <div>
       <p>
@@ -35,6 +36,7 @@ MessageList.propTypes = {
     text: PropTypes.string.isRequired
   }).isRequired).isRequired,
   deleteMessage: PropTypes.func.isRequired,
+  preloadMessages: PropTypes.func.isRequired,
   currentUserName: PropTypes.string.isRequired,
   fetching: PropTypes.bool.isRequired
 }

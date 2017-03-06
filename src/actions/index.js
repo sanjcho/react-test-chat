@@ -50,6 +50,12 @@ export const updateMessages = (messages) => {
   }
 }
 
+export const preloadMessages = () => {
+  return {
+    type: 'PRELOAD_MESSAGES'
+  }
+}
+
 
 // Planned store structure
 // {
