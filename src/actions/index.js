@@ -7,11 +7,10 @@ import {
 
 let nextMessageId = 0
 
-export const changeUser = (name, color) => {
+export const changeUser = (name) => {
   return {
     type: CHANGE_USER,
-    name,
-    color
+    name
   }
 }
 

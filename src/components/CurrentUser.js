@@ -1,15 +1,12 @@
 import React, { PropTypes } from 'react'
 import { Button  } from 'react-bootstrap';
+import { browserHistory } from 'react-router'
 
 const CurrentUser = ({currentUser, changeUser }) => {
   let input
   return(
     <div>
-      <h3
-        style={{
-          color: currentUser.color
-        }}
-      >
+      <h3>
         Current user is: {currentUser.name}
       </h3>
       <div>
@@ -19,7 +16,7 @@ const CurrentUser = ({currentUser, changeUser }) => {
             return
           }
           changeUser(input.value)
-          input.value = ''
+          browserHistory.push('/code_check')
         }}>
           <input ref={node => {
             input = node
@@ -35,8 +32,7 @@ const CurrentUser = ({currentUser, changeUser }) => {
 
 CurrentUser.propTypes = {
   currentUser: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    color: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired
   }).isRequired,
   changeUser: PropTypes.func.isRequired
 }
