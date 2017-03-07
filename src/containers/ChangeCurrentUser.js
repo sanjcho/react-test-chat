@@ -3,9 +3,9 @@ import CurrentUser from '../components/CurrentUser'
 import {changeUser} from '../actions'
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = () => {
   return {
-    currentUser: state.currentUser
+    // currentUser: state.currentUser
   }
 }
 
@@ -18,8 +18,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const ChangeCurrentUser = connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps, mapDispatchToProps
 )(CurrentUser)
 
 export default ChangeCurrentUser

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-const Message = ({deleteMessage, author, text, color, id, currentUserName }) => {
+const Message = ({deleteMessage, author, text, id, currentUserName }) => {
   console.log('author: ' + author)
   console.log('current: ' + currentUserName)
   function handleClick(e) {
@@ -10,11 +10,7 @@ const Message = ({deleteMessage, author, text, color, id, currentUserName }) => 
     }
   }
   return(
-    <p
-      style={{
-        color: color
-      }}
-    >
+    <p>
       {author}: {text}
       <a href='#' onClick={handleClick}>
         Delete me
@@ -25,7 +21,6 @@ const Message = ({deleteMessage, author, text, color, id, currentUserName }) => 
 Message.propTypes = {
   author: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   currentUserName: PropTypes.string.isRequired,
   deleteMessage: PropTypes.func.isRequired

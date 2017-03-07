@@ -37,7 +37,6 @@ MessageList.propTypes = {
   messages: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     author: PropTypes.string.isRequired,
-    color: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired
   }).isRequired).isRequired,
   deleteMessage: PropTypes.func.isRequired,

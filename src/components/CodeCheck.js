@@ -7,14 +7,16 @@ const CodeChek = () =>  {
     return (
         <div>
             <h3> Введите проверочный код</h3>
-            <input ref={node => {
-                input = node
-            }} />
-            <Link to='/chat'>
-                <Button>
-                    Apply
-                </Button>
-            </Link>
+            <form>
+                <input ref={node => {
+                    input = node
+                }} />
+                <Link to='/chat'>
+                    <Button type='submit'>
+                        Next
+                    </Button>
+                </Link>
+            </form>
         </div>
     )
 }

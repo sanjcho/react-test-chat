@@ -3,16 +3,14 @@ import {
 } from '../constants/All'
 
 const initialState = {
-  name: 'default',
-  color: '#000'
+  name: 'default'
 }
 
 const currentUser = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_USER:
       return Object.assign({}, state, {
-        name: action.name,
-        color: action.color
+        name: action.name
       } )
     default:
       return state

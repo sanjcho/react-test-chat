@@ -2,12 +2,12 @@ import React, { PropTypes } from 'react'
 import { Button  } from 'react-bootstrap';
 import { browserHistory } from 'react-router'
 
-const CurrentUser = ({currentUser, changeUser }) => {
+const CurrentUser = ({changeUser }) => {
   let input
   return(
     <div>
       <h3>
-        Current user is: {currentUser.name}
+        Please, enter your'e username
       </h3>
       <div>
         <form onSubmit={e => {
@@ -22,7 +22,7 @@ const CurrentUser = ({currentUser, changeUser }) => {
             input = node
           }} />
           <Button type= 'submit'>
-            Change Current User
+            Next
           </Button>
         </form>
       </div>
@@ -31,9 +31,6 @@ const CurrentUser = ({currentUser, changeUser }) => {
 }
 
 CurrentUser.propTypes = {
-  currentUser: PropTypes.shape({
-    name: PropTypes.string.isRequired
-  }).isRequired,
   changeUser: PropTypes.func.isRequired
 }
 

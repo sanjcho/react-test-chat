@@ -9,8 +9,7 @@ const message = (state = {}, action) => {
       return {
         id: action.id,
         text: action.text,
-        author: action.user.name,
-        color: action.user.color
+        author: action.user.name
       }
     default:
       return state
