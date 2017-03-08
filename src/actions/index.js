@@ -5,7 +5,8 @@ import {
   IS_FETCHING,
   STOP_FETCHING,
   UPDATE_MESSAGES,
-  PRELOAD_MESSAGES
+  PRELOAD_MESSAGES,
+  CHECK_CODE
 } from '../constants/All'
 
 let nextMessageId = 0
@@ -56,6 +57,13 @@ export const updateMessages = (messages) => {
 export const preloadMessages = () => {
   return {
     type: PRELOAD_MESSAGES
+  }
+}
+
+export const checkCode = (code) => {
+  return {
+    type: CHECK_CODE,
+    code
   }
 }
 

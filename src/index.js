@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import Chat from './components/Chat'
-import CodeCheck from './components/CodeCheck'
+import CodeCheck from './containers/CodeCheck'
 import ChangeCurrentUser from './containers/ChangeCurrentUser'
 import './styles/App.css'
 
