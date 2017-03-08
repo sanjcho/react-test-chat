@@ -11,8 +11,8 @@ const mapStateToProps = () => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeUser: (name) => {
-      dispatch(changeUser(name))
+    changeUser: (phone_number) => {
+      dispatch(changeUser(phone_number))
     }
   }
 }

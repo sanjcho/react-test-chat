@@ -10,10 +10,10 @@ import {
 
 let nextMessageId = 0
 
-export const changeUser = (name) => {
+export const changeUser = (phone_number) => {
   return {
     type: CHANGE_USER,
-    name
+    phone_number
   }
 }
 

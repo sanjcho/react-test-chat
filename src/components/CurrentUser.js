@@ -7,7 +7,7 @@ const CurrentUser = ({changeUser }) => {
   return(
     <div>
       <h3>
-        Please, enter your'e username
+        Please, enter your'e phone_number
       </h3>
       <div>
         <form onSubmit={e => {
