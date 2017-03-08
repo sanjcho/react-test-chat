@@ -1,4 +1,4 @@
-import { takeEvery, put } from 'redux-saga/effects'
+import { takeEvery, put, select } from 'redux-saga/effects'
 import {
   ADD_MESSAGE
 } from '../constants/All'
@@ -14,9 +14,12 @@ export function* mySaga() {
   yield takeEvery(ADD_MESSAGE, sendMessage)
 }
 
+const getUser = state => state.currentUser
+
 function* sendMessage(action) {
   yield put({type: 'IS_FETCHING'});
-  const messages = yield fetchData(action.text, action.user);
+  const user = yield select(getUser)
+  const messages = yield fetchData(action.text, user);
   yield put({type: 'UPDATE_MESSAGES', messages})
   yield put({type: 'STOP_FETCHING'});
 }
@@ -50,6 +53,7 @@ function fetchData(text, user) {
       })  
       .then(function (j) {
       let messages = j.messages.map(function(m) {
+        console.log('user from api' + m.user)
          return {
            id: m._id,
            author: m.user.name,

@@ -2,7 +2,10 @@ import {
   CHANGE_USER,
   ADD_MESSAGE,
   DELETE_MESSAGE,
-  IS_FETCHING
+  IS_FETCHING,
+  STOP_FETCHING,
+  UPDATE_MESSAGES,
+  PRELOAD_MESSAGES
 } from '../constants/All'
 
 let nextMessageId = 0
@@ -38,21 +41,21 @@ export const isFetching = () => {
 
 export const stopFetching = () => {
   return {
-    type: 'STOP_FETCHING'
+    type: STOP_FETCHING
   }
 }
 
 export const updateMessages = (messages) => {
   console.log(messages);
   return {
-    type: 'UPDATE_MESSAGES',
+    type: UPDATE_MESSAGES,
     messages: messages
   }
 }
 
 export const preloadMessages = () => {
   return {
-    type: 'PRELOAD_MESSAGES'
+    type: PRELOAD_MESSAGES
   }
 }
 

@@ -1,5 +1,6 @@
 import {
-  IS_FETCHING
+  IS_FETCHING,
+  STOP_FETCHING
 } from '../constants/All'
 
 const initialState = {
@@ -12,7 +13,7 @@ const serviceState = (state = initialState, action) => {
       return Object.assign({}, state, {
         isFetching: true
       } )
-    case 'STOP_FETCHING':
+    case STOP_FETCHING:
     return Object.assign({}, state, {
       isFetching: false
     } )

@@ -1,6 +1,7 @@
 import {
   ADD_MESSAGE,
-  DELETE_MESSAGE
+  DELETE_MESSAGE,
+  UPDATE_MESSAGES
 } from '../constants/All'
 
 const message = (state = {}, action) => {
@@ -26,7 +27,7 @@ const messages = (state = [], action) => {
       ]
     case DELETE_MESSAGE:
       return state.filter(message => message.id != action.id )
-    case 'UPDATE_MESSAGES':
+    case UPDATE_MESSAGES:
       return action.messages
       default:
       return state
