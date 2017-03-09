@@ -1,10 +1,4 @@
 import { takeEvery, put, select } from 'redux-saga/effects'
-import {ACCESS_TOKEN_30,
-        CLIENT_30,
-        UID_30,
-        ACCESS_TOKEN_33,
-        CLIENT_33,
-        UID_33 } from '../constants/AuthInfo'
 
 const getUser = state => state.currentUser
 
@@ -23,9 +17,9 @@ function* preloadMessages() {
 function fetchData(user) {
   let myHeaders = {
     'Content-Type' : 'application/json',
-    'access-token': user.name == 'Тестовый 1' ? ACCESS_TOKEN_30 : ACCESS_TOKEN_33,
-    'uid' : user.name == 'Тестовый 1' ?  UID_30 : UID_33,
-    'client' : user.name == 'Тестовый 1' ? CLIENT_30 : CLIENT_33
+    'access-token': user.authInfo.accessToken,
+    'uid' : user.authInfo.uid,
+    'client' : user.authInfo.client
   }
   
 

@@ -1,5 +1,9 @@
 import { takeEvery, put, select } from 'redux-saga/effects'
-import { CHECK_CODE } from '../constants/All'
+import {browserHistory} from 'react-router'
+import {CHECK_CODE,
+        IS_FETCHING,
+        STOP_FETCHING,
+        SAVE_AUTH_INFO } from '../constants/All'
 
 const getUser = state => state.currentUser
 
@@ -8,11 +12,12 @@ export function* checkCodeSaga(){
 }
 
 function* checkCode(action){
-  yield put({type: 'IS_FETCHING'});
+  yield put({type: IS_FETCHING});
   const user = yield select(getUser)
-  const userProfile = yield fetchCheck(action.code, user.phone_number);
-  console.log(userProfile)
-  yield put({type: 'STOP_FETCHING'});
+  const authInfo = yield fetchCheck(action.code, user.phone_number);
+  yield put({type: SAVE_AUTH_INFO, ...authInfo})
+  yield put({type: STOP_FETCHING});
+  yield browserHistory.push('/chat')
 }
 
 function fetchCheck(code, phone_number) {
@@ -42,8 +47,13 @@ function fetchCheck(code, phone_number) {
         return r.json() ;
     })  
     .then(function (j) {
-        console.log('code checked:')
-        return j        
+        console.log('code checked:' + j.auth_info);
+        let authInfo = {
+            accessToken: j.auth_info['access-token'],
+            client: j.auth_info.client,
+            uid: j.auth_info.uid
+        }
+        return authInfo        
     });
 
 }

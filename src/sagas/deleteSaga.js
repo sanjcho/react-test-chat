@@ -1,26 +1,27 @@
-import { takeEvery, put } from 'redux-saga/effects'
+import { takeEvery, put, select } from 'redux-saga/effects'
 import { DELETE_MESSAGE} from '../constants/All'
-import {ACCESS_TOKEN_30,
-        CLIENT_30,
-        UID_30 } from '../constants/AuthInfo'
 
 export function* deleteSaga(){
     yield takeEvery(DELETE_MESSAGE, deleteFromServer)
 }
 
+const getInfo = state =>  state.currentUser.authInfo
+
 function* deleteFromServer(action){
   yield put({type: 'IS_FETCHING'});
-  yield fetchDelete(action.id);
+  const authInfo = yield select(getInfo)
+  console.log(authInfo)
+  yield fetchDelete(action.id, authInfo);
   yield put({type: 'STOP_FETCHING'});
 }
 
-function fetchDelete(id) {
+function fetchDelete(id, authInfo) {
 
   let myHeaders = {
     'Content-Type' : 'application/json',
-    'access-token': ACCESS_TOKEN_30,
-    'uid' :  UID_30,
-    'client' : CLIENT_30
+    'access-token': authInfo.accessToken,
+    'uid' :  authInfo.uid,
+    'client' : authInfo.client
   }
   
 

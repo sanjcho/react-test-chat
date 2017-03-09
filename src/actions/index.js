@@ -6,7 +6,8 @@ import {
   STOP_FETCHING,
   UPDATE_MESSAGES,
   PRELOAD_MESSAGES,
-  CHECK_CODE
+  CHECK_CODE,
+  SAVE_AUTH_INFO
 } from '../constants/All'
 
 let nextMessageId = 0
@@ -67,12 +68,26 @@ export const checkCode = (code) => {
   }
 }
 
+export const saveAuthInfo = (accessToken, client, uid) => {
+  return {
+    type: SAVE_AUTH_INFO,
+    accessToken,
+    client,
+    uid
+  }
+}
+
 
 // Planned store structure
 // {
 //   current_user: {
 //     name: "",
-//     color: ""
+//     color: "",
+//      authInfo: {
+//        accessToken: ,
+//        client: ,
+//        uid: 
+//      }
 //   },
 //   messages: [
 //     {id: num,

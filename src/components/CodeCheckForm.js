@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react'
 import { Button  } from 'react-bootstrap';
-import { browserHistory } from 'react-router'
 
 
 const CodeCheckForm = ({dispatchCheck}) =>  {
@@ -15,7 +14,6 @@ const CodeCheckForm = ({dispatchCheck}) =>  {
                 }
                 dispatchCheck(input.value)
                 input.value = ''
-                browserHistory.push('/chat')
             }}>
                 <input ref={node => {
                     input = node

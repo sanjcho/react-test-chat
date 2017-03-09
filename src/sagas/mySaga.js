@@ -2,13 +2,6 @@ import { takeEvery, put, select } from 'redux-saga/effects'
 import {
   ADD_MESSAGE
 } from '../constants/All'
-import {ACCESS_TOKEN_30,
-        CLIENT_30,
-        UID_30,
-        ACCESS_TOKEN_33,
-        CLIENT_33,
-        UID_33 } from '../constants/AuthInfo'
-
 
 export function* mySaga() {
   yield takeEvery(ADD_MESSAGE, sendMessage)
@@ -35,9 +28,9 @@ function fetchData(text, user) {
   })
   let myHeaders = {
     'Content-Type' : 'application/json',
-    'access-token': user.name == 'Тестовый 1' ? ACCESS_TOKEN_30 : ACCESS_TOKEN_33,
-    'uid' : user.name == 'Тестовый 1' ?  UID_30 : UID_33,
-    'client' : user.name == 'Тестовый 1' ? CLIENT_30 : CLIENT_33
+    'access-token': user.authInfo.accessToken,
+    'uid' : user.authInfo.uid ,
+    'client' : user.authInfo.client
   }
   
 

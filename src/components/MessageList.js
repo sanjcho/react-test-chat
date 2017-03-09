@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react'
 import Message from './Message'
 
 class MessageList extends React.Component {
-  // = ({ messages, deleteMessage, currentUserName, fetching, preloadMessages }) => {
   constructor(props) {
     super(props)
   }
@@ -22,7 +21,6 @@ class MessageList extends React.Component {
               <Message
                 key={message.id}
                 deleteMessage={this.props.deleteMessage}
-                currentUserName={this.props.currentUserName}
                 {...message}
               />
             </div>
@@ -41,7 +39,6 @@ MessageList.propTypes = {
   }).isRequired).isRequired,
   deleteMessage: PropTypes.func.isRequired,
   preloadMessages: PropTypes.func.isRequired,
-  currentUserName: PropTypes.string.isRequired,
   fetching: PropTypes.bool.isRequired
 }
 
