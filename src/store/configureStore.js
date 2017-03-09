@@ -1,14 +1,14 @@
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import createLogger from 'redux-logger'
 import chatApp from '../reducers'
 import {rootSaga} from '../sagas/rootSaga'
+import {persistStore, autoRehydrate} from 'redux-persist'
 
 const sagaMiddleware = createSagaMiddleware()
 const initialState = {
   currentUser: {
-    name: 'Unknown',
-    color: '#555'
+    name: 'Unknown'
   }
 }
 
@@ -17,10 +17,14 @@ const configureStore = () => {
   const store = createStore(
     chatApp,
     initialState,
-    applyMiddleware(sagaMiddleware, logger)
+    compose( 
+      applyMiddleware(sagaMiddleware, logger),
+      autoRehydrate()
+    )
   )
   sagaMiddleware.run(rootSaga)
-
+  persistStore(store)
+  
   if (module.hot) {
     module.hot.accept('../reducers', () => {
       const nextRootReducer = require('../reducers')

@@ -3,6 +3,8 @@ import {
   DELETE_MESSAGE,
   UPDATE_MESSAGES
 } from '../constants/All'
+import {REHYDRATE} from 'redux-persist/constants'
+import {processSpecial} from 'redux-persist'
 
 const message = (state = {}, action) => {
   switch (action.type) {
@@ -30,6 +32,10 @@ const messages = (state = [], action) => {
     case UPDATE_MESSAGES:
       return action.messages
       default:
+      return state
+    case REHYDRATE:
+      var incoming = action.payload.myReducer
+      if (incoming) return {...state, ...incoming, specialKey: processSpecial(incoming.specialKey)}
       return state
   }
 }

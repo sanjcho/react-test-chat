@@ -1,17 +1,17 @@
 import React, { PropTypes } from 'react'
 
-const Message = ({deleteMessage, author, text, id }) => {
+const Message = ({deleteMessage, author, text, id}) => {
   function handleClick(e) {
     e.preventDefault()
     deleteMessage(id)
   }
   return(
-    <p>
+    <div>
       {author}: {text}
       <a href='#' onClick={handleClick}>
         Delete me
       </a>
-    </p>
+    </div>
   )
 }
 Message.propTypes = {

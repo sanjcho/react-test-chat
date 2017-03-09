@@ -82,7 +82,6 @@ export const saveAuthInfo = (accessToken, client, uid) => {
 // {
 //   current_user: {
 //     name: "",
-//     color: "",
 //      authInfo: {
 //        accessToken: ,
 //        client: ,

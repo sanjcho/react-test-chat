@@ -17,9 +17,8 @@ class MessageList extends React.Component {
         </h3>
         <div>
           {this.props.messages.map(message =>
-            <div>
+            <div key={message.id}>
               <Message
-                key={message.id}
                 deleteMessage={this.props.deleteMessage}
                 {...message}
               />
