@@ -1,8 +1,6 @@
 import React, { PropTypes } from 'react'
 
 const Message = ({deleteMessage, author, text, id, currentUserName }) => {
-  console.log('author: ' + author)
-  console.log('current: ' + currentUserName)
   function handleClick(e) {
     e.preventDefault()
     if (author === currentUserName) {
