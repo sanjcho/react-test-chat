@@ -2,7 +2,10 @@ import React, { PropTypes } from 'react'
 import { Button  } from 'react-bootstrap';
 import { browserHistory } from 'react-router'
 
-const CurrentUser = ({changeUser }) => {
+const CurrentUser = ({currentUser, changeUser }) => {
+  if (typeof currentUser.authInfo !== 'undefined') {
+    browserHistory.push('/chat')
+  }
   let input
   return(
     <div>

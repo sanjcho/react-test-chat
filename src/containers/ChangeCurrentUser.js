@@ -3,9 +3,9 @@ import CurrentUser from '../components/CurrentUser'
 import {changeUser} from '../actions'
 
 
-const mapStateToProps = () => {
+const mapStateToProps = (state) => {
   return {
-    // currentUser: state.currentUser
+    currentUser: state.currentUser
   }
 }
 
