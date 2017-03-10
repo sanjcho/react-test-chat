@@ -9,7 +9,9 @@ const sagaMiddleware = createSagaMiddleware()
 const initialState = {
   currentUser: {
     name: 'Unknown'
-  }
+  },
+  conversations: [],
+  messages: []
 }
 
 const configureStore = () => {

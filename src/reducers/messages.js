@@ -31,11 +31,11 @@ const messages = (state = [], action) => {
       return state.filter(message => message.id != action.id )
     case UPDATE_MESSAGES:
       return action.messages
-      default:
-      return state
     case REHYDRATE:
       var incoming = action.payload.myReducer
       if (incoming) return {...state, ...incoming, specialKey: processSpecial(incoming.specialKey)}
+      return state
+    default:
       return state
   }
 }

@@ -7,7 +7,9 @@ import {
   UPDATE_MESSAGES,
   PRELOAD_MESSAGES,
   CHECK_CODE,
-  SAVE_AUTH_INFO
+  SAVE_AUTH_INFO,
+  UPDATE_CONVERSATIONS,
+  PRELOAD_CONVERSATIONS
 } from '../constants/All'
 
 let nextMessageId = 0
@@ -51,13 +53,14 @@ export const updateMessages = (messages) => {
   console.log(messages);
   return {
     type: UPDATE_MESSAGES,
-    messages: messages
+    messages
   }
 }
 
-export const preloadMessages = () => {
+export const preloadMessages = (conversation_id) => {
   return {
-    type: PRELOAD_MESSAGES
+    type: PRELOAD_MESSAGES,
+    conversation_id
   }
 }
 
@@ -77,6 +80,19 @@ export const saveAuthInfo = (accessToken, client, uid) => {
   }
 }
 
+export const updateConversations = (conversations) => {
+  return {
+    type: UPDATE_CONVERSATIONS,
+    conversations
+  }
+}
+
+export const preloadConversations = () => {
+  return {
+    type: PRELOAD_CONVERSATIONS
+  }
+}
+
 
 // Planned store structure
 // {
@@ -88,6 +104,17 @@ export const saveAuthInfo = (accessToken, client, uid) => {
 //        uid: 
 //      }
 //   },
+//   conversations: [
+//     {id: ,
+//     accessLevelName:
+//     permission: ,
+//     recipient: {
+//       id: ,
+//       name: ,
+//     }
+//    },
+//    {},...
+//   ]
 //   messages: [
 //     {id: num,
 //     user: "",

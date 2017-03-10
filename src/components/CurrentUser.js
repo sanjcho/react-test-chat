@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router'
 
 const CurrentUser = ({currentUser, changeUser }) => {
   if (typeof currentUser.authInfo !== 'undefined') {
-    browserHistory.push('/chat')
+    browserHistory.push('/conversation_list')
   }
   let input
   return(

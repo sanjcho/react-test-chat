@@ -1,20 +1,52 @@
 import { takeEvery, put, select } from 'redux-saga/effects'
+import {PRELOAD_CONVERSATIONS,
+        PRELOAD_MESSAGES,
+        IS_FETCHING,
+        STOP_FETCHING,
+        UPDATE_MESSAGES,
+        UPDATE_CONVERSATIONS} from '../constants/All'
 
 const getUser = state => state.currentUser
 
-export function* preloadSaga() {
-  yield takeEvery('PRELOAD_MESSAGES', preloadMessages)
+export function* preloadMessagesSaga() {
+  yield takeEvery(PRELOAD_MESSAGES, preloadMessages)
 }
 
-function* preloadMessages() {
-  yield put({type: 'IS_FETCHING'});
+export function* preloadConversationsSaga() {
+  yield takeEvery(PRELOAD_CONVERSATIONS, preloadConversations)
+}
+
+function* preloadConversations() {
+  yield put({ type: IS_FETCHING})
   const user = yield select(getUser)
-  const messages = yield fetchData(user);
-  yield put({type: 'UPDATE_MESSAGES', messages})
-  yield put({type: 'STOP_FETCHING'});
+  const result = yield fetchData(user)
+  let conversations = result.conversations.map(function(c) {
+    return {
+      id: c.id,
+      accessLevelName: c.access_level_name,
+      recipient: c.recipient
+    }
+  })
+  yield put({type: UPDATE_CONVERSATIONS, conversations})
+  yield put({type: STOP_FETCHING})
 }
 
-function fetchData(user) {
+function* preloadMessages(action) {
+  yield put({type: IS_FETCHING});
+  const user = yield select(getUser)
+  const result = yield fetchData(user, action.conversation_id);
+  let messages = result.messages.map(function(m) {
+      return {
+        id: m._id,
+        author: m.user.name,
+        text: m.text
+      }
+    });
+  yield put({type: UPDATE_MESSAGES, messages})
+  yield put({type: STOP_FETCHING});
+}
+
+function fetchData(user, id = '') {
   let myHeaders = {
     'Content-Type' : 'application/json',
     'access-token': user.authInfo.accessToken,
@@ -23,7 +55,7 @@ function fetchData(user) {
   }
   
 
-  return fetch('http://localhost:3001/api/v1/conversations/6',
+  return fetch(`http://localhost:3001/api/v1/conversations/${id}`,
     {
       method: 'get',
       mode: 'cors',
@@ -33,13 +65,6 @@ function fetchData(user) {
         return r.json() ;
       })  
       .then(function (j) {
-      let messages = j.messages.map(function(m) {
-         return {
-           id: m._id,
-           author: m.user.name,
-           text: m.text
-         }
-       });
-      return(messages);
+      return(j);
     });
 }
