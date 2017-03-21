@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import ConversationList from '../components/ConversationList'
-import {preloadConversation} from '../actions'
+import {preloadConversations} from '../actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -11,8 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    preloadConversation: () => {
-      dispatch(preloadConversation())
+    preloadConversations: () => {
+      dispatch(preloadConversations())
     }
   }
 }

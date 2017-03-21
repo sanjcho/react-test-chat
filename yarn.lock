@@ -3914,7 +3914,7 @@ redux-logger@^2.8.1:
   dependencies:
     deep-diff "0.3.4"
 
-redux-persist@^4.4.2:
+redux-persist@4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-4.4.2.tgz#0e874284f3d155215d1f33f48fadfc850526618e"
   dependencies:

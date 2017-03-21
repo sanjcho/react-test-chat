@@ -20,6 +20,7 @@ function* preloadConversations() {
   yield put({ type: IS_FETCHING})
   const user = yield select(getUser)
   const result = yield fetchData(user)
+  console.log(result)
   let conversations = result.conversations.map(function(c) {
     return {
       id: c.id,
