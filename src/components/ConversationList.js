@@ -15,7 +15,7 @@ class ConversationList extends React.Component {
         <h3>
           Conversations:
         </h3>
-            <ul>
+            <ul>            
                 {this.props.conversations.map(conversation =>
                     <li key={conversation.id}>
                     <Conversation
@@ -30,8 +30,11 @@ class ConversationList extends React.Component {
 }
 
 ConversationList.propTypes = {
-  сonversations: PropTypes.arrayOf(PropTypes.shape({
+  conversations: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
+    permission: PropTypes.bool.isRequired,
+    newMessagesCount: PropTypes.integer,
+    conversationAvatar: PropTypes.object,
     author: PropTypes.shape({
       company: PropTypes.string,
       created_at: PropTypes.string,
@@ -39,11 +42,7 @@ ConversationList.propTypes = {
       name: PropTypes.string,
       phoneNumber: PropTypes.string,
       rating: PropTypes.string,
-      avatar: PropTypes.shape({
-        avatar: PropTypes.shape({
-          url: PropTypes.string
-        })
-      })
+      avatar: PropTypes.object
     }),
     text: PropTypes.string.isRequired
   }).isRequired).isRequired,

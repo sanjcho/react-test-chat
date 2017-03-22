@@ -5,7 +5,7 @@ const Conversation = ({ recipient, accessLevelName, permission, id}) => {
 
   return(
     <div>
-      {recipient}: {accessLevelName}
+      {recipient.name}: {accessLevelName}
       <p> Permission: {permission} </p>
       <Link to={`/conversations/${id}`}> Enter me </Link>
     </div>

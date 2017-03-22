@@ -25,6 +25,9 @@ function* preloadConversations() {
     return {
       id: c.id,
       accessLevelName: c.access_level_name,
+      permission: c.permission,
+      conversationAvatar: c.conversation_avatar,
+      newMessagesCount: c.new_messages_count,
       recipient: c.recipient
     }
   })
