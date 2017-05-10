@@ -32,19 +32,18 @@ class ConversationList extends React.Component {
 ConversationList.propTypes = {
   conversations: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
-    permission: PropTypes.bool.isRequired,
+    permission: PropTypes.bool,
     newMessagesCount: PropTypes.integer,
     conversationAvatar: PropTypes.object,
-    author: PropTypes.shape({
+    recipient: PropTypes.shape({
       company: PropTypes.string,
       created_at: PropTypes.string,
       id: PropTypes.integer,
       name: PropTypes.string,
       phoneNumber: PropTypes.string,
-      rating: PropTypes.string,
+      rating: PropTypes.number,
       avatar: PropTypes.object
-    }),
-    text: PropTypes.string.isRequired
+    })
   }).isRequired).isRequired,
   preloadConversations: PropTypes.func.isRequired,
   fetching: PropTypes.bool.isRequired
