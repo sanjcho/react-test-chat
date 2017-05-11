@@ -17,11 +17,13 @@ class ConversationList extends React.Component {
         </h3>
             <ul>            
                 {this.props.conversations.map(conversation =>
+                  <div  className='one-conversation-in-list'>
                     <li key={conversation.id}>
                     <Conversation
                         {...conversation}
                     />
                     </li>
+                  </div>
                 )}
             </ul>
       </div>

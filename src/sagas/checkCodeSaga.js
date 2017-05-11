@@ -17,7 +17,7 @@ function* checkCode(action){
   const authInfo = yield fetchCheck(action.code, user.phone_number);
   yield put({type: SAVE_AUTH_INFO, ...authInfo})
   yield put({type: STOP_FETCHING});
-  yield browserHistory.push('/conversation_list')
+  yield browserHistory.push('/chat')
 }
 
 function fetchCheck(code, phone_number) {

@@ -4,7 +4,6 @@ import { Provider } from 'react-redux'
 import Chat from './components/Chat'
 import CodeCheck from './containers/CodeCheck'
 import ChangeCurrentUser from './containers/ChangeCurrentUser'
-import GetConversationList from './containers/GetConversationList'
 import './styles/App.css'
 
 import configureStore from './store/configureStore'
@@ -18,8 +17,7 @@ render(
     <Router history={browserHistory}>
       <Route path= '/' component={ChangeCurrentUser} />
       <Route path= '/code_check' component={CodeCheck} />
-      <Route path= '/conversation_list' component={GetConversationList} />
-      <Route path= '/conversations/(:id)' component={Chat} />
+      <Route path= '/chat' component={Chat} />
     </Router>
   </Provider>,
   document.getElementById('root')

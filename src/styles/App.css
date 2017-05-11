@@ -89,3 +89,12 @@ h3 {
 .btn:hover {
   background-color: #6d8cb0
 }
+.messages-list {
+  height: 800px;
+  width: 100%;
+  border: 1px black solid;
+}
+.one-conversation-in-list {
+  border: 1px black solid;
+  margin: 2px
+}
