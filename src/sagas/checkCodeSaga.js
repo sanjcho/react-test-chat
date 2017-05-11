@@ -29,7 +29,7 @@ function fetchCheck(code, phone_number) {
         'data' : {
             'attributes' :{
             'phone_number' : phone_number,
-            'code' : phone_number
+            'code' : code
             }
         }
      })

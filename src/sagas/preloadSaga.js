@@ -39,14 +39,16 @@ function* preloadMessages(action) {
   yield put({type: IS_FETCHING});
   const user = yield select(getUser)
   const result = yield fetchData(user, action.conversation_id);
-  let messages = result.messages.map(function(m) {
-      return {
-        id: m._id,
-        author: m.user.name,
-        text: m.text
-      }
-    });
-  yield put({type: UPDATE_MESSAGES, messages})
+  if (typeof(result.messages) !== 'undefined') {
+    let messages = result.messages.map(function(m) {
+        return {
+          id: m._id,
+          author: m.user.name,
+          text: m.text
+        }
+      });
+    yield put({type: UPDATE_MESSAGES, messages})
+  }
   yield put({type: STOP_FETCHING});
 }
 
