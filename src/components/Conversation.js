@@ -1,12 +1,17 @@
 import React, { PropTypes } from 'react'
-import { Link } from 'react-router'
 
-const Conversation = ({ recipient, accessLevelName, permission, id}) => {
+const Conversation = ({preloadMessages, recipient, accessLevelName, permission, id }) => {
+  function handleClick(e) {
+    e.preventDefault()
+    preloadMessages(id)
+  }
   return(
     <div>
       {(recipient == null) ? 'Групповой' : recipient.name } {accessLevelName}
       <p> Permission: {permission ? 'Да' : 'Нет'} </p>
-      <Link to={`/conversations/${id}`}> Enter me </Link>
+      <a href='#' onClick={handleClick}>
+        Enter me
+      </a>
     </div>
   )
 }

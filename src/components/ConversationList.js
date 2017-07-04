@@ -20,6 +20,7 @@ class ConversationList extends React.Component {
                   <div  className='one-conversation-in-list'>
                     <li key={conversation.id}>
                     <Conversation
+                      preloadMessages = {this.props.preloadMessages}
                         {...conversation}
                     />
                     </li>
@@ -48,6 +49,7 @@ ConversationList.propTypes = {
     })
   }).isRequired).isRequired,
   preloadConversations: PropTypes.func.isRequired,
+  preloadMessages: PropTypes.func.isRequired,
   fetching: PropTypes.bool.isRequired
 }
 

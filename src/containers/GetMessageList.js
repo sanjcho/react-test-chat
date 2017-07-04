@@ -5,7 +5,8 @@ import {deleteMessage, preloadMessages} from '../actions'
 const mapStateToProps = (state) => {
   return {
     messages: state.messages,
-    fetching: state.serviceState.isFetching
+    fetching: state.serviceState.isFetching,
+    conversationId: state.conversations[0].id
   }
 }
 
@@ -14,8 +15,8 @@ const mapDispatchToProps = (dispatch) => {
     deleteMessage: (id) => {
       dispatch(deleteMessage(id))
     },
-    preloadMessages: () => {
-      dispatch(preloadMessages())
+    preloadMessages: (id) => {
+      dispatch(preloadMessages(id))
     }
   }
 }

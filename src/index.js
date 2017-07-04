@@ -17,7 +17,8 @@ render(
     <Router history={browserHistory}>
       <Route path= '/' component={ChangeCurrentUser} />
       <Route path= '/code_check' component={CodeCheck} />
-      <Route path= '/chat' component={Chat} />
+      <Route path= '/chat' component={Chat} >
+      </Route >
     </Router>
   </Provider>,
   document.getElementById('root')

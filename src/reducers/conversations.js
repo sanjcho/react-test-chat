@@ -6,7 +6,6 @@ import {processSpecial} from 'redux-persist'
 
 
 const conversations = (state = [], action) => {
-  console.log(state)
   switch (action.type) {
     case UPDATE_CONVERSATIONS:
       return action.conversations

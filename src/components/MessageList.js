@@ -5,7 +5,7 @@ class MessageList extends React.Component {
   constructor(props) {
     super(props)
   }
-  componentWillMount(){ this.props.preloadMessages() }
+  componentWillMount(){ this.props.preloadMessages(this.props.conversationId) }
   render(){
     return(
       <div>
@@ -36,6 +36,7 @@ MessageList.propTypes = {
     author: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired
   }).isRequired).isRequired,
+  conversationId: PropTypes.number.isRequired,
   deleteMessage: PropTypes.func.isRequired,
   preloadMessages: PropTypes.func.isRequired,
   fetching: PropTypes.bool.isRequired
