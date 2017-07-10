@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react'
 
-const Conversation = ({preloadMessages, recipient, accessLevelName, permission, id }) => {
+const Conversation = ({preloadMessages, setCurrentConversation, recipient, accessLevelName, permission, id }) => {
   function handleClick(e) {
     e.preventDefault()
     preloadMessages(id)
+    setCurrentConversation(id)
   }
   return(
     <div>

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { addMessage } from '../actions'
 import { Button } from 'react-bootstrap';
 
-let AddMessage = ({user, dispatch }) => {
+let AddMessage = ({user, conversationId, dispatch }) => {
   let input
   return (
     <div>
@@ -12,7 +12,7 @@ let AddMessage = ({user, dispatch }) => {
         if (!input.value.trim()) {
           return
         }
-        dispatch(addMessage(user, input.value))
+        dispatch(addMessage(user, input.value, conversationId))
         input.value = ''
       }}>
         <input ref={node => {
@@ -30,7 +30,8 @@ let AddMessage = ({user, dispatch }) => {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.currentUser
+    user: state.currentUser,
+    conversationId: state.currentConversation
   }
 }
 

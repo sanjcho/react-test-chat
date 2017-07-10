@@ -12,16 +12,16 @@ const getUser = state => state.currentUser
 function* sendMessage(action) {
   yield put({type: 'IS_FETCHING'});
   const user = yield select(getUser)
-  const messages = yield fetchData(action.text, user);
+  const messages = yield fetchData(action.text, user, action.conversationId);
   yield put({type: 'UPDATE_MESSAGES', messages})
   yield put({type: 'STOP_FETCHING'});
 }
 
-function fetchData(text, user) {
+function fetchData(text, user, conversationId) {
   let myBody = JSON.stringify({
   'data' : {
     'attributes' :{
-       'conversation_id' : '6',
+       'conversation_id' : conversationId,
        'text' : text
       }
     }

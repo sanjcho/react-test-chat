@@ -12,7 +12,8 @@ const message = (state = {}, action) => {
       return {
         id: action.id,
         text: action.text,
-        author: action.user.name
+        author: action.user.name,
+        conversationId: action.conversationId
       }
     default:
       return state

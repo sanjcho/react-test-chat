@@ -21,6 +21,7 @@ class ConversationList extends React.Component {
                     <li key={conversation.id}>
                     <Conversation
                       preloadMessages = {this.props.preloadMessages}
+                      setCurrentConversation = {this.props.setCurrentConversation}
                         {...conversation}
                     />
                     </li>

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import ConversationList from '../components/ConversationList'
-import {preloadConversations, preloadMessages} from '../actions'
+import {preloadConversations, preloadMessages, updateCurrentConversation} from '../actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -16,6 +16,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     preloadMessages: (id) => {
       dispatch(preloadMessages(id))
+    },
+    setCurrentConversation: (conversationId) => {
+      dispatch(updateCurrentConversation(conversationId))
     }
   }
 }

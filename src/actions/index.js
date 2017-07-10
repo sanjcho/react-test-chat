@@ -9,7 +9,8 @@ import {
   CHECK_CODE,
   SAVE_AUTH_INFO,
   UPDATE_CONVERSATIONS,
-  PRELOAD_CONVERSATIONS
+  PRELOAD_CONVERSATIONS,
+  UPDATE_CURRENT_CONVERSATION
 } from '../constants/All'
 
 let nextMessageId = 0
@@ -21,12 +22,13 @@ export const changeUser = (phone_number) => {
   }
 }
 
-export const addMessage = (user, text) => {
+export const addMessage = (user, text, conversationId) => {
   return {
     type: ADD_MESSAGE,
     id: nextMessageId++,
     user,
-    text
+    text,
+    conversationId
   }
 }
 
@@ -90,6 +92,13 @@ export const updateConversations = (conversations) => {
 export const preloadConversations = () => {
   return {
     type: PRELOAD_CONVERSATIONS
+  }
+}
+
+export const updateCurrentConversation = (conversationId) => {
+  return {
+    type: UPDATE_CURRENT_CONVERSATION,
+    conversationId
   }
 }
 
