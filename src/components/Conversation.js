@@ -10,9 +10,14 @@ const Conversation = ({preloadMessages, setCurrentConversation, recipient, acces
     <div>
       {(recipient == null) ? 'Групповой' : recipient.name } {accessLevelName}
       <p> Permission: {permission ? 'Да' : 'Нет'} </p>
-      <a href='#' onClick={handleClick}>
-        Enter me
-      </a>
+      {permission ? (
+        <a href='#' onClick={handleClick}>
+          Enter me
+        </a>
+      ) : (
+        <p> You can't get in </p>
+      )}
+      
     </div>
   )
 }

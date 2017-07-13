@@ -27,7 +27,7 @@ function fetchDelete(id, authInfo) {
 
   fetch('http://localhost:3001/api/v1/messages/' + id,
     {
-        method: 'DELETE',
+        method: 'delete',
         mode: 'cors',
         headers: myHeaders
     })
